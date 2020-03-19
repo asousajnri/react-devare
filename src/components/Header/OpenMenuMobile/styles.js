@@ -11,6 +11,7 @@ export const Container = styled.div`
   margin-right: 1.5rem;
   position: relative;
   transition: all 0.3s;
+  cursor: pointer;
 
   &.is-active {
     height: 4rem;
