@@ -6,13 +6,13 @@ import { Container } from './styles';
 const MainMenu = () => (
   <Container>
     <li>
-      <Link to="/">Receitas</Link>
+      <Link to="/receitas">Receitas</Link>
     </li>
     <li>
-      <Link to="/">Minhas Receitas</Link>
+      <Link to="/minhas-receitas">Minhas Receitas</Link>
     </li>
     <li>
-      <Link to="/">Adicionar receitas</Link>
+      <Link to="/adicionar-receitas">Adicionar receitas</Link>
     </li>
   </Container>
 );

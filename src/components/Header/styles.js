@@ -1,11 +1,24 @@
 import styled from 'styled-components';
 
-import devices from '../../styles/devices';
+import devices, { sizes } from '../../styles/devices';
 
 export const Container = styled.div`
   background: ${props => props.theme.colors.primary};
   border-bottom: 2px solid ${props => props.theme.colors.secundary};
   height: 8rem;
+  margin-bottom: 6rem;
+`;
+
+export const GridMax = styled.div`
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  height: 100%;
+  max-width: ${sizes.desktop};
+  padding: 0 2rem;
 `;
 
 export const Logo = styled.h1`

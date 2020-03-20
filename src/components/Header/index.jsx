@@ -2,18 +2,17 @@ import React from 'react';
 
 import pathLogo from '../../assets/images/devari-food-white.png';
 import useIsMobile from '../../hooks/useIsMobile';
-import MainContainer from '../MainContainer';
 import MainMenu from './MainMenu';
 import OpenMenuMobile from './OpenMenuMobile';
 import ProfileAvatar from './ProfileAvatar';
-import { Container, Logo, WrapperControls } from './styles';
+import { Container, Logo, WrapperControls, GridMax } from './styles';
 
 const Header = () => {
   const isMobile = useIsMobile();
 
   return (
     <Container>
-      <MainContainer alignItems="center" justifyContent="center">
+      <GridMax>
         <Logo>
           Devari Food
           <img src={pathLogo} alt="Devari Food" />
@@ -25,7 +24,7 @@ const Header = () => {
           {isMobile && <OpenMenuMobile />}
           <ProfileAvatar />
         </WrapperControls>
-      </MainContainer>
+      </GridMax>
     </Container>
   );
 };
