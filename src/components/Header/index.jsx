@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <Container>
-      <MainContainer>
+      <MainContainer alignItems="center" justifyContent="center">
         <Logo>
           Devari Food
           <img src={pathLogo} alt="Devari Food" />

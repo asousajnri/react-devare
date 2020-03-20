@@ -1,7 +1,7 @@
 import { shade } from 'polished';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.button`
   display: inline-block;
   width: 100%;
   max-width: 35rem;
@@ -19,6 +19,7 @@ export const Container = styled.div`
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   transition: all 0.3s;
+  border: none;
 
   display: flex;
   align-items: center;

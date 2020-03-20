@@ -21,7 +21,12 @@ const App = () => {
       <ThemeProvider theme={defaultTheme}>
         <Header />
         {isMobile && <MenuMobile />}
-        <MainContainer flexDirection="column">
+        <MainContainer
+          paddingVertical
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
           <Routes />
         </MainContainer>
         {/* <NotifyModal /> */}
