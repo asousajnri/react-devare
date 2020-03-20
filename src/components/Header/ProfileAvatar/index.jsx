@@ -7,7 +7,10 @@ const ProfileAvatar = () => (
   <Container>
     <Avatar>
       <img src={pathAvatar} alt="" />
-      <span>Sair</span>
+      <div>
+        <h2>Antônio</h2>
+        <span>Sair</span>
+      </div>
     </Avatar>
   </Container>
 );

@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container, Item } from './styles';
 
 const MenuMobile = () => (
   <Container>
     <Item>
-      <a href="/">Receitas</a>
+      <Link to="/">Receitas</Link>
     </Item>
     <Item>
-      <a href="/">Minhas Receitas</a>
+      <Link to="/">Minhas Receitas</Link>
     </Item>
     <Item>
-      <a href="/">Adicionar Receitas</a>
+      <Link to="/">Adicionar Receitas</Link>
     </Item>
   </Container>
 );

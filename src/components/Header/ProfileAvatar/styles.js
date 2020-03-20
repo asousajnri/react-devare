@@ -19,14 +19,28 @@ export const Avatar = styled.div`
     background: #fff;
 
     img {
-      border-color: red;
+      border-color: ${props => props.theme.colors.primary};
+    }
+
+    h2 {
+      display: block;
     }
 
     span {
       display: block;
-      font-size: 1.6rem;
-      width: auto;
     }
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+    display: none;
+    margin-bottom: 0.4rem;
   }
 
   img {
@@ -40,15 +54,11 @@ export const Avatar = styled.div`
 
   span {
     display: inline-block;
-    margin-left: 1rem;
     color: red;
-    font-size: 1.6rem;
-    text-transform: uppercase;
+    font-size: 1.3rem;
     text-decoration: underline;
     display: none;
-    width: 0;
     transition: all 0.3s;
     cursor: pointer;
-    font-weight: bold;
   }
 `;
