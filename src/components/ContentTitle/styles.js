@@ -32,6 +32,28 @@ export const Container = styled.div`
       left: 5rem;
     }
   }
+`;
+
+export const ButtonActions = styled.button`
+  background: transparent;
+  border: none;
+  position: absolute;
+  display: flex;
+  cursor: pointer;
+`;
+
+export const GoBack = styled(ButtonActions)`
+  left: 3rem;
+  align-items: center;
+
+  @media ${devices.tabletLandscape} {
+    left: 5rem;
+  }
+
+  img {
+    width: 3rem;
+    margin-right: 0.3rem;
+  }
 
   span {
     font-size: 1.8rem;
@@ -42,23 +64,16 @@ export const Container = styled.div`
       display: block;
     }
   }
-
-  img {
-    width: 3rem;
-    margin-right: 0.3rem;
-  }
 `;
 
-export const GoBack = styled.button`
-  background: transparent;
-  border: none;
-  position: absolute;
-  left: 3rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
+export const DeleteRecipe = styled(ButtonActions)`
+  right: 3rem;
 
   @media ${devices.tabletLandscape} {
-    left: 5rem;
+    right: 5rem;
+  }
+
+  img {
+    width: 2.5rem;
   }
 `;

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import pathSvg from '../../assets/images/svg/arrow.svg';
-import { Container, GoBack } from './styles';
+import pathSvgReturn from '../../assets/images/svg/arrow.svg';
+import pathSvgTrash from '../../assets/images/svg/trash.svg';
+import { Container, GoBack, DeleteRecipe } from './styles';
 
-const ContentTitle = ({ text, children }) => {
+const ContentTitle = ({ text, deleteButton, children }) => {
   const history = useHistory();
   const [enableGoBack, setEnableGoBack] = useState(true);
 
@@ -18,12 +19,18 @@ const ContentTitle = ({ text, children }) => {
     <Container>
       {enableGoBack && (
         <GoBack onClick={() => history.goBack()}>
-          <img src={pathSvg} alt="" />
+          <img src={pathSvgReturn} alt="Icone Return" />
           <span>Voltar</span>
         </GoBack>
       )}
 
       <h2>{text}</h2>
+
+      {deleteButton && (
+        <DeleteRecipe>
+          <img src={pathSvgTrash} alt="Icone Trash" />
+        </DeleteRecipe>
+      )}
     </Container>
   );
 };

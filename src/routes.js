@@ -1,6 +1,7 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
+import EditRecipe from './pages/EditRecipe';
 import Login from './pages/Login';
 import MyRecipes from './pages/MyRecipes';
 import NewRecipe from './pages/NewRecipe';
@@ -23,6 +24,9 @@ const MainRoutes = () => (
     </Route>
     <Route exact path="/adicionar-receita">
       <NewRecipe />
+    </Route>
+    <Route exact path="/editar-receita">
+      <EditRecipe />
     </Route>
   </Switch>
 );
