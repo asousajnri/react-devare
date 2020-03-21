@@ -4,12 +4,7 @@ import { sizes } from '../../styles/devices';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: ${props =>
-    props.flexDirection === 'column' ? 'column' : 'row'};
-  align-items: ${props =>
-    props.alignItems === 'center' ? 'center' : 'flex-start'};
-  justify-content: ${props =>
-    props.justifyContent === 'center' ? 'center' : 'space-between'};
+  justify-content: center;
 
   width: 100%;
   height: 100%;
