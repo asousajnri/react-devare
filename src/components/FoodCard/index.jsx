@@ -12,7 +12,7 @@ const FoodCard = ({ imagePath, category, recipeName, recipeText }) => (
     <AreaText>
       <h3>{recipeName}</h3>
       <p>{recipeText}</p>
-      <Link to="/">Ver receita</Link>
+      <Link to="/ver-receita">Ver receita</Link>
     </AreaText>
   </Container>
 );

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.select`
   display: block;
   display: block;
-  height: 60px;
+  height: 6rem;
   width: 100%;
   border: 1px solid #317c94;
   padding: 0 2rem;

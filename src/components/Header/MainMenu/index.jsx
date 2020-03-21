@@ -12,7 +12,7 @@ const MainMenu = () => (
       <Link to="/minhas-receitas">Minhas Receitas</Link>
     </li>
     <li>
-      <Link to="/adicionar-receitas">Adicionar receitas</Link>
+      <Link to="/adicionar-receita">Adicionar receitas</Link>
     </li>
   </Container>
 );

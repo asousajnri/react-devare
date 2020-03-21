@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import Button from '../../components/Button';
 import ContentTitle from '../../components/ContentTitle';
 import Form from '../../components/Form';
 import { Container } from './styles';
@@ -14,7 +15,7 @@ const NewRecipe = () => {
   return (
     <Container>
       <ContentTitle text="Adicionar receita" />
-      <Form.Container>
+      <Form.Container borderRadius="false">
         <Form.Group>
           <Form.Input
             type="text"
@@ -23,6 +24,8 @@ const NewRecipe = () => {
           />
           <Form.Select selects={selects} />
         </Form.Group>
+        <Form.Textarea placeholder="Descrição" />
+        <Button type="submit">Criar receita</Button>
       </Form.Container>
     </Container>
   );

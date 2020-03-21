@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-export const Container = styled.input`
+export const Container = styled.textarea`
   display: block;
-  display: block;
-  height: 6rem;
+  height: 20rem;
   width: 100%;
   border: 1px solid #317c94;
-  padding: 0 2rem;
+  padding: 3rem 2rem;
   border-radius: 5px;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   font-size: 1.8rem;
 `;

@@ -12,6 +12,7 @@ export const Container = styled.div`
 
 export const Description = styled(Container)`
   display: flex;
+  margin-bottom: 0;
 `;
 
 export const PhotoCover = styled.div`
@@ -63,6 +64,7 @@ export const PhotoCover = styled.div`
 export const ArexText = styled(Container)`
   background: #fff;
   padding: 3rem;
+  margin-bottom: 0;
 
   @media ${devices.tabletLandscape} {
     padding: 4rem 6rem;

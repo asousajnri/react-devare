@@ -7,7 +7,7 @@ import { Container } from './styles';
 
 const Login = () => (
   <Container>
-    <img src={pathLogo} />
+    <img src={pathLogo} alt="Logo Devari Food" />
 
     <Form.Container>
       <Form.Input type="text" name="email" placeholder="Email" />

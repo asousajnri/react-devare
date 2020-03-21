@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Form } from './styles';
 
-const Container = ({ children }) => <Form>{children}</Form>;
+const Container = ({ borderRadius, children }) => (
+  <Form borderRadius={borderRadius}>{children}</Form>
+);
 
 export default Container;

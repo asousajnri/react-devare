@@ -45,6 +45,20 @@ export const Container = styled.div`
 
   img {
     width: 3rem;
-    margin-right: 0.5rem;
+    margin-right: 0.3rem;
+  }
+`;
+
+export const GoBack = styled.button`
+  background: transparent;
+  border: none;
+  position: absolute;
+  left: 3rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  @media ${devices.tabletLandscape} {
+    left: 5rem;
   }
 `;
