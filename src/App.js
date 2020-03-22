@@ -15,16 +15,19 @@ import GlobalStyle from './styles/global';
 import defaultTheme from './styles/themes/default';
 
 const App = () => {
-  const [{ modal }, dispatch] = useReducer(reducer, initialState);
-
   const isMobile = useIsMobile();
+
+  const [{ modal, openMenuMobile }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   return (
     <Router>
       <GlobalStyle />
       <ThemeProvider theme={defaultTheme}>
         <Header dispatch={dispatch} />
-        {isMobile && <MenuMobile />}
+        {isMobile && <MenuMobile className={openMenuMobile && 'is-active'} />}
         <MainContainer>
           <Routes dispatch={dispatch} />
         </MainContainer>

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import { Container, Item } from './styles';
 
-const MenuMobile = () => (
-  <Container>
+const MenuMobile = ({ className }) => (
+  <Container className={className}>
     <Item>
       <Link to="/">Receitas</Link>
     </Item>

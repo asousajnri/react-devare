@@ -6,4 +6,5 @@ module.exports = {
     buttonText: '',
     buttonAction: null,
   },
+  openMenuMobile: false,
 };

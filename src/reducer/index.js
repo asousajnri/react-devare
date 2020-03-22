@@ -13,6 +13,10 @@ module.exports = function reducer(state, action) {
           buttonAction: action.buttonAction,
         },
       };
+    case 'OPEN_MENU_MOBILE':
+      return {
+        openMenuMobile: !state.openMenuMobile,
+      };
     default:
       return state;
   }

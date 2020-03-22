@@ -6,7 +6,11 @@ export const Container = styled.div`
   background: ${props => props.theme.colors.primary};
   border-bottom: 2px solid ${props => props.theme.colors.secundary};
   height: 8rem;
-  margin-bottom: 6rem;
+  margin-bottom: 4rem;
+
+  @media ${devices.tabletLandscape} {
+    margin-bottom: 6rem;
+  }
 `;
 
 export const GridMax = styled.div`

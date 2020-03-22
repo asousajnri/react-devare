@@ -24,7 +24,7 @@ const Header = ({ dispatch }) => {
         {!isMobile && <MainMenu />}
 
         <WrapperControls>
-          {isMobile && <OpenMenuMobile />}
+          {isMobile && <OpenMenuMobile dispatch={dispatch} />}
           <ProfileAvatar dispatch={dispatch} />
         </WrapperControls>
       </GridMax>

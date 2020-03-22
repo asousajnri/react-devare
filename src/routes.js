@@ -26,7 +26,7 @@ const MainRoutes = ({ dispatch }) => (
       <NewRecipe />
     </Route>
     <Route exact path="/editar-receita">
-      <EditRecipe />
+      <EditRecipe dispatch={dispatch} />
     </Route>
   </Switch>
 );

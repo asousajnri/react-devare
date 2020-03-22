@@ -1,21 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import pathAvatar from '../../../assets/images/evil-morty.jpg';
 import { Container, Avatar } from './styles';
 
 const ProfileAvatar = ({ dispatch }) => {
+  const [isActive, setIsActive] = useState(false);
+
   const handleModalButtonRight = e => {
     e.persist();
-    console.log(e.target);
     dispatch({
       type: 'MODAL',
-      bodyText: 'Tem certeza que deseja sair?',
     });
+  };
+
+  const handleIsActiveAvatar = e => {
+    e.stopPropagation();
+    setIsActive(!isActive);
   };
 
   return (
     <Container>
-      <Avatar>
+      <Avatar
+        onClick={e => handleIsActiveAvatar(e)}
+        className={isActive && 'is-active'}
+      >
         <img src={pathAvatar} alt="" />
         <div>
           <h2>Antônio</h2>

@@ -5,7 +5,7 @@ import pathSvgReturn from '../../assets/images/svg/arrow.svg';
 import pathSvgTrash from '../../assets/images/svg/trash.svg';
 import { Container, GoBack, DeleteRecipe } from './styles';
 
-const ContentTitle = ({ text, deleteButton, children }) => {
+const ContentTitle = ({ text, deleteButton, children, dispatch }) => {
   const history = useHistory();
   const [enableGoBack, setEnableGoBack] = useState(true);
 
@@ -14,6 +14,13 @@ const ContentTitle = ({ text, deleteButton, children }) => {
 
     setEnableGoBack(pathNameUrl !== 'receitas' ? enableGoBack : !enableGoBack);
   }, []);
+
+  const handleModalButtonRight = e => {
+    e.persist();
+    dispatch({
+      type: 'MODAL',
+    });
+  };
 
   return (
     <Container>
@@ -27,7 +34,16 @@ const ContentTitle = ({ text, deleteButton, children }) => {
       <h2>{text}</h2>
 
       {deleteButton && (
-        <DeleteRecipe>
+        <DeleteRecipe
+          onClick={() =>
+            dispatch({
+              type: 'MODAL',
+              bodyText: 'Tem certeza que deseja excluir?',
+              buttonText: 'Excluir',
+              buttonAction: handleModalButtonRight,
+            })
+          }
+        >
           <img src={pathSvgTrash} alt="Icone Trash" />
         </DeleteRecipe>
       )}

@@ -5,7 +5,7 @@ import ContentTitle from '../../components/ContentTitle';
 import Form from '../../components/Form';
 import { Container } from './styles';
 
-const EditRecipe = () => {
+const EditRecipe = ({ dispatch }) => {
   const [selects, setSelects] = useState([
     { id: 0, text: 'Pizza' },
     { id: 1, text: 'Sanduíche' },
@@ -14,7 +14,7 @@ const EditRecipe = () => {
 
   return (
     <Container>
-      <ContentTitle text="Editar receita" deleteButton />
+      <ContentTitle text="Editar receita" deleteButton dispatch={dispatch} />
       <Form.Container borderRadius="false">
         <Form.Group>
           <Form.Input

@@ -1,7 +1,22 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import devices from '../../../styles/devices';
 
 export const Container = styled.div`
   display: flex;
+`;
+
+const HOVER_AND_CLICKEVENT = `
+  padding: 0.5rem 1.5rem 0.5rem 1rem;
+  background: #fff;
+
+  h2 {
+    display: block;
+  }
+
+  span {
+    display: block;
+  }
 `;
 
 export const Avatar = styled.div`
@@ -13,23 +28,6 @@ export const Avatar = styled.div`
   background: transparent;
   transition: all 0.3s;
   cursor: pointer;
-
-  &:hover {
-    padding: 0.5rem 1.5rem 0.5rem 1rem;
-    background: #fff;
-
-    img {
-      border-color: ${props => props.theme.colors.primary};
-    }
-
-    h2 {
-      display: block;
-    }
-
-    span {
-      display: block;
-    }
-  }
 
   div {
     display: flex;
@@ -61,5 +59,26 @@ export const Avatar = styled.div`
     display: none;
     transition: all 0.3s;
     cursor: pointer;
+  }
+
+  &.is-active {
+    img {
+      border-color: ${props => props.theme.colors.primary};
+    }
+    
+    ${css`
+      ${HOVER_AND_CLICKEVENT}
+    `}
+  }
+
+  @media ${devices.tabletLandscape} {
+    img {
+      border-color: ${props => props.theme.colors.primary};
+    }
+    
+    &:hover {
+      ${css`
+        ${HOVER_AND_CLICKEVENT}
+      `};
   }
 `;
