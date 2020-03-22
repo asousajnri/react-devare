@@ -2,15 +2,15 @@ import React from 'react';
 
 import { Container, BoxModal, AreaText, Actions, Button } from './styles';
 
-const NotifyModal = () => (
+const NotifyModal = ({ bodyText, buttonText, buttonAction, dispatch }) => (
   <Container>
     <BoxModal>
       <AreaText>
-        <p>Tem certeza que deseja sair?</p>
+        <p>{bodyText}</p>
       </AreaText>
       <Actions>
-        <Button>Cancelar</Button>
-        <Button>Sair</Button>
+        <Button onClick={() => dispatch({ type: 'MODAL' })}>Cancelar</Button>
+        <Button onClick={e => buttonAction(e)}>{buttonText}</Button>
       </Actions>
     </BoxModal>
   </Container>

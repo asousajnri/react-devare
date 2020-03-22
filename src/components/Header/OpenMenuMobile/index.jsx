@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Line } from './styles';
 
-const OpenMenuMobile = () => (
+const OpenMenuMobile = ({ dispatch }) => (
   <Container>
     <Line className="top" />
     <Line className="center" />

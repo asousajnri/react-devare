@@ -53,6 +53,7 @@ export const Avatar = styled.div`
   }
 
   span {
+    /* pointer-events: none; */
     display: inline-block;
     color: red;
     font-size: 1.3rem;

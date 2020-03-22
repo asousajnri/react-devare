@@ -25,7 +25,7 @@ const EditRecipe = () => {
           <Form.Select selects={selects} />
         </Form.Group>
         <Form.Textarea placeholder="Descrição" />
-        <Button type="submit">Criar receita</Button>
+        <Button type="submit">Atualizar receita</Button>
       </Form.Container>
     </Container>
   );

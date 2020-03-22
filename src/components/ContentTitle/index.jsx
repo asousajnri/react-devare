@@ -12,7 +12,7 @@ const ContentTitle = ({ text, deleteButton, children }) => {
   useEffect(() => {
     const pathNameUrl = window.location.pathname.slice(1);
 
-    setEnableGoBack(pathNameUrl != 'receitas' ? enableGoBack : !enableGoBack);
+    setEnableGoBack(pathNameUrl !== 'receitas' ? enableGoBack : !enableGoBack);
   }, []);
 
   return (

@@ -8,7 +8,7 @@ import NewRecipe from './pages/NewRecipe';
 import Recipes from './pages/Recipes';
 import ViewRecipe from './pages/ViewRecipe';
 
-const MainRoutes = () => (
+const MainRoutes = ({ dispatch }) => (
   <Switch>
     <Route exact path="/">
       <Login />
