@@ -4,6 +4,10 @@ module.exports = function reducer(state, action) {
       return {
         message: action.message,
       };
+    case 'USER_AUTH':
+      return {
+        state,
+      };
     case 'MODAL':
       return {
         modal: {

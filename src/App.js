@@ -17,7 +17,7 @@ import defaultTheme from './styles/themes/default';
 const App = () => {
   const isMobile = useIsMobile();
 
-  const [{ modal, openMenuMobile }, dispatch] = useReducer(
+  const [{ modal, openMenuMobile, userAuth }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -28,8 +28,9 @@ const App = () => {
       <ThemeProvider theme={defaultTheme}>
         <Header dispatch={dispatch} />
         {isMobile && <MenuMobile className={openMenuMobile && 'is-active'} />}
+
         <MainContainer>
-          <Routes dispatch={dispatch} />
+          <Routes dispatch={dispatch} userAuth={userAuth} />
         </MainContainer>
 
         {modal.visible && (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import EditRecipe from './pages/EditRecipe';
 import Login from './pages/Login';
@@ -8,10 +8,10 @@ import NewRecipe from './pages/NewRecipe';
 import Recipes from './pages/Recipes';
 import ViewRecipe from './pages/ViewRecipe';
 
-const MainRoutes = ({ dispatch }) => (
+const MainRoutes = ({ dispatch, userAuth }) => (
   <Switch>
     <Route exact path="/">
-      <Login />
+      <Login dispatch={dispatch} />
     </Route>
     <Route exact path="/receitas">
       <Recipes />
