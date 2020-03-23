@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import pathAvatar from '../../../assets/images/evil-morty.jpg';
+import locaStorageActions from '../../../utils/localStarage';
 import { Container, Avatar } from './styles';
 
 const ProfileAvatar = ({ dispatch }) => {
@@ -8,9 +9,13 @@ const ProfileAvatar = ({ dispatch }) => {
 
   const handleModalButtonRight = e => {
     e.persist();
+
     dispatch({
       type: 'MODAL',
     });
+
+    window.location.reload();
+    locaStorageActions.removeItem('isLogged');
   };
 
   const handleIsActiveAvatar = e => {

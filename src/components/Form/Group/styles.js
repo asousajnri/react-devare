@@ -12,7 +12,9 @@ export const Container = styled.div`
   }
 
   input,
-  select {
+  select,
+  div {
+    flex: 1;
     margin-bottom: 2rem;
 
     &:last-child {

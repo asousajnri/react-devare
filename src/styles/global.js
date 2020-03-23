@@ -12,9 +12,8 @@ export default createGlobalStyle`
         line-height: 1;
     }
 
-    html,
     body {
-        height: 100%;
+        height: 100vh;
     }
 
     html {
@@ -49,9 +48,6 @@ export default createGlobalStyle`
     }
 
     #root {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 100%;
+        height: auto;
     }
 `;

@@ -5,6 +5,7 @@ import pathLogo from '../../assets/images/devari-food.png';
 import Button from '../../components/Button';
 import Form from '../../components/Form';
 import loadUser from '../../utils/loadUser';
+import LocalStorageActions from '../../utils/localStarage';
 import { Container } from './styles';
 
 const Login = ({ dispatch }) => {
@@ -64,8 +65,11 @@ const Login = ({ dispatch }) => {
         setNotify(false);
         const { name, image, token } = response;
 
+        LocalStorageActions.setItem('isLogged', true);
+
         dispatch({
           type: 'USER_AUTH',
+          isLogged: LocalStorageActions.getItem('isLogged'),
           name,
           image,
           token,

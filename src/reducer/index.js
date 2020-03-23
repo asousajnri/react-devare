@@ -6,7 +6,13 @@ module.exports = function reducer(state, action) {
       };
     case 'USER_AUTH':
       return {
-        state,
+        userAuth: {
+          isLogged: action.isLogged,
+          name: action.name,
+          image: action.image,
+          token: action.token,
+        },
+        modal: state.modal,
       };
     case 'MODAL':
       return {
@@ -16,10 +22,14 @@ module.exports = function reducer(state, action) {
           buttonText: action.buttonText,
           buttonAction: action.buttonAction,
         },
+        userAuth: state.userAuth,
+        openMenuMobile: !state.openMenuMobile,
       };
     case 'OPEN_MENU_MOBILE':
       return {
         openMenuMobile: !state.openMenuMobile,
+        userAuth: state.userAuth,
+        modal: state.modal,
       };
     default:
       return state;

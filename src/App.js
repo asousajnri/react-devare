@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import { ThemeProvider } from 'styled-components';
@@ -13,6 +13,7 @@ import initialState from './reducer/initialState';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 import defaultTheme from './styles/themes/default';
+// import localStorageActions from './utils/localStarage';
 
 const App = () => {
   const isMobile = useIsMobile();
@@ -26,7 +27,7 @@ const App = () => {
     <Router>
       <GlobalStyle />
       <ThemeProvider theme={defaultTheme}>
-        <Header dispatch={dispatch} />
+        {userAuth.isLogged && <Header dispatch={dispatch} />}
         {isMobile && <MenuMobile className={openMenuMobile && 'is-active'} />}
 
         <MainContainer>

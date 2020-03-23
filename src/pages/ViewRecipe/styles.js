@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   max-width: 90rem;
   width: 100%;
-  margin-bottom: 10rem;
+  margin-bottom: auto;
 `;
 
 export const Description = styled(Container)`
