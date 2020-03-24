@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Button from '../../components/Button';
 import ContentTitle from '../../components/ContentTitle';
@@ -6,7 +7,8 @@ import Form from '../../components/Form';
 import api from '../../services/api';
 import { Container } from './styles';
 
-const NewRecipe = ({ userId, token }) => {
+const NewRecipe = ({ dispatch, userId, token }) => {
+  const history = useHistory();
   const [categorys, setCategorys] = useState([]);
 
   const [title, setTitle] = useState('');
@@ -30,6 +32,16 @@ const NewRecipe = ({ userId, token }) => {
     loadCategorys();
   }, []);
 
+  const handleModalAction = e => {
+    e.persist();
+
+    dispatch({
+      type: 'MODAL',
+    });
+
+    history.push('/receitas');
+  };
+
   const handleOnSubmit = async e => {
     e.preventDefault();
 
@@ -48,6 +60,16 @@ const NewRecipe = ({ userId, token }) => {
           },
         }
       );
+
+      setTitle('');
+      setDescription('');
+
+      dispatch({
+        type: 'MODAL',
+        bodyText: 'Receita cadastrada com sucesso!',
+        buttonText: 'Ir para Receitas',
+        buttonAction: handleModalAction,
+      });
     } else {
       setRequiredTitle(true);
       setRequiredSelect(true);
@@ -90,6 +112,7 @@ const NewRecipe = ({ userId, token }) => {
       <Form.Container borderRadius="false" onSubmit={handleOnSubmit}>
         <Form.Group>
           <Form.Input
+            value={title}
             onChange={handleFieldTitle}
             type="text"
             name="adicionar"
@@ -110,7 +133,11 @@ const NewRecipe = ({ userId, token }) => {
             ))}
           </Form.Select>
         </Form.Group>
-        <Form.Textarea placeholder="Descrição" onChange={handleDescription} />
+        <Form.Textarea
+          value={description}
+          placeholder="Descrição"
+          onChange={handleDescription}
+        />
         <Button type="submit">Criar receita</Button>
       </Form.Container>
     </Container>
