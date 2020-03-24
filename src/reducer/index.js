@@ -8,6 +8,7 @@ module.exports = function reducer(state, action) {
       return {
         userAuth: {
           isLogged: action.isLogged,
+          id: action.id,
           name: action.name,
           image: action.image,
           token: action.token,

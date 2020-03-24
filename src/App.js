@@ -13,7 +13,6 @@ import initialState from './reducer/initialState';
 import Routes from './routes';
 import GlobalStyle from './styles/global';
 import defaultTheme from './styles/themes/default';
-// import localStorageActions from './utils/localStarage';
 
 const App = () => {
   const isMobile = useIsMobile();
@@ -27,7 +26,13 @@ const App = () => {
     <Router>
       <GlobalStyle />
       <ThemeProvider theme={defaultTheme}>
-        {userAuth.isLogged && <Header dispatch={dispatch} />}
+        {userAuth.isLogged && (
+          <Header
+            dispatch={dispatch}
+            userName={userAuth.name}
+            userImage={userAuth.image}
+          />
+        )}
         {isMobile && <MenuMobile className={openMenuMobile && 'is-active'} />}
 
         <MainContainer>

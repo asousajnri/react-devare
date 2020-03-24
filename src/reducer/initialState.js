@@ -1,10 +1,11 @@
 module.exports = {
   message: 'Testando reducer',
   userAuth: {
-    isLogged: localStorage.getItem('isLogged') || false,
-    name: '',
-    image: '',
-    token: '',
+    isLogged: localStorage.isLogged || false,
+    id: localStorage.id || null,
+    name: localStorage.name || '',
+    image: localStorage.image || '',
+    token: localStorage.token || '',
   },
   modal: {
     visible: false,

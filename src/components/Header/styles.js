@@ -15,10 +15,11 @@ export const Container = styled.div`
 
 export const GridMax = styled.div`
   display: flex;
-  flex-direction: center;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 
+  margin: 0 auto;
   width: 100%;
   height: 100%;
   max-width: ${sizes.desktop};

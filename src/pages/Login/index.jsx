@@ -5,7 +5,6 @@ import pathLogo from '../../assets/images/devari-food.png';
 import Button from '../../components/Button';
 import Form from '../../components/Form';
 import loadUser from '../../utils/loadUser';
-import LocalStorageActions from '../../utils/localStarage';
 import { Container } from './styles';
 
 const Login = ({ dispatch }) => {
@@ -63,16 +62,21 @@ const Login = ({ dispatch }) => {
         setPassword('');
       } else {
         setNotify(false);
-        const { name, image, token } = response;
+        const { status, id, name, image, token } = response;
 
-        LocalStorageActions.setItem('isLogged', true);
+        localStorage.setItem('isLogged', true);
+        localStorage.setItem('token', token);
+        localStorage.setItem('id', id);
+        localStorage.setItem('name', name);
+        localStorage.setItem('image', image);
 
         dispatch({
           type: 'USER_AUTH',
-          isLogged: LocalStorageActions.getItem('isLogged'),
-          name,
-          image,
-          token,
+          isLogged: localStorage.isLogged,
+          id: localStorage.id,
+          name: localStorage.name,
+          image: localStorage.image,
+          token: localStorage.token,
         });
 
         history.push('/receitas');

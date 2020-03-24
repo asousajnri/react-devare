@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   max-width: 90rem;
   width: 100%;
-  margin-bottom: auto;
+  margin-bottom: 10rem;
 `;
 
 export const Description = styled(Container)`
@@ -65,6 +65,9 @@ export const ArexText = styled(Container)`
   background: #fff;
   padding: 3rem;
   margin-bottom: 0;
+  border: 1px solid #eae9e9;
+  border-top: none;
+  border-radius: 5px;
 
   @media ${devices.tabletLandscape} {
     padding: 4rem 6rem;

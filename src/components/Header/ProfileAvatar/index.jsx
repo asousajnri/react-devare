@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 
-import pathAvatar from '../../../assets/images/evil-morty.jpg';
-import locaStorageActions from '../../../utils/localStarage';
 import { Container, Avatar } from './styles';
 
-const ProfileAvatar = ({ dispatch }) => {
+const ProfileAvatar = ({ dispatch, userName, userImage }) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleModalButtonRight = e => {
@@ -14,8 +12,13 @@ const ProfileAvatar = ({ dispatch }) => {
       type: 'MODAL',
     });
 
+    localStorage.removeItem('isLogged');
+    localStorage.removeItem('token');
+    localStorage.removeItem('id');
+    localStorage.removeItem('name');
+    localStorage.removeItem('image');
+
     window.location.reload();
-    locaStorageActions.removeItem('isLogged');
   };
 
   const handleIsActiveAvatar = e => {
@@ -29,9 +32,9 @@ const ProfileAvatar = ({ dispatch }) => {
         onClick={e => handleIsActiveAvatar(e)}
         className={isActive && 'is-active'}
       >
-        <img src={pathAvatar} alt="" />
+        <img src={userImage} alt={userName} />
         <div>
-          <h2>Antônio</h2>
+          <h2>{userName}</h2>
           <span
             onClick={() =>
               dispatch({

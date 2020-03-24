@@ -1,87 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import ContentTitle from '../../components/ContentTitle';
 import FoodCard from '../../components/FoodCard';
+import loadRecipes from '../../utils/loadRecipes';
 import { Container, GridFoodCards } from './styles';
 
-const Recipes = () => (
-  <Container>
-    <ContentTitle text="Receitas" />
-    <GridFoodCards>
-      <FoodCard
-        imagePath="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-        category="Pizza"
-        recipeName="Calabresa"
-        recipeText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        textLink="Ver receita"
-        textLinkUrl="ver-receita"
-      />
-      <FoodCard
-        imagePath="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-        category="Pizza"
-        recipeName="Calabresa"
-        recipeText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        textLink="Ver receita"
-        textLinkUrl="ver-receita"
-      />
-      <FoodCard
-        imagePath="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-        category="Pizza"
-        recipeName="Calabresa"
-        recipeText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        textLink="Ver receita"
-        textLinkUrl="ver-receita"
-      />
-      <FoodCard
-        imagePath="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-        category="Pizza"
-        recipeName="Calabresa"
-        recipeText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        textLink="Ver receita"
-        textLinkUrl="ver-receita"
-      />
-      <FoodCard
-        imagePath="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-        category="Pizza"
-        recipeName="Calabresa"
-        recipeText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        textLink="Ver receita"
-        textLinkUrl="ver-receita"
-      />
-      <FoodCard
-        imagePath="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-        category="Pizza"
-        recipeName="Calabresa"
-        recipeText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        textLink="Ver receita"
-        textLinkUrl="ver-receita"
-      />
-      <FoodCard
-        imagePath="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-        category="Pizza"
-        recipeName="Calabresa"
-        recipeText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        textLink="Ver receita"
-        textLinkUrl="ver-receita"
-      />
-      <FoodCard
-        imagePath="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-        category="Pizza"
-        recipeName="Calabresa"
-        recipeText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        textLink="Ver receita"
-        textLinkUrl="ver-receita"
-      />
-      <FoodCard
-        imagePath="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-        category="Pizza"
-        recipeName="Calabresa"
-        recipeText="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
-        textLink="Ver receita"
-        textLinkUrl="ver-receita"
-      />
-    </GridFoodCards>
-  </Container>
-);
+const Recipes = ({ token }) => {
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const response = await loadRecipes(token);
+
+      setRecipes(response);
+    };
+
+    load();
+  }, []);
+
+  return (
+    <Container>
+      <ContentTitle text="Receitas" />
+      <GridFoodCards>
+        {recipes.map(recipe => (
+          <FoodCard
+            key={recipe.id}
+            imagePath={recipe.category.image || 'https://place-hold.it/600x600'}
+            category={recipe.category.name}
+            recipeName={recipe.title}
+            recipeText={recipe.description}
+            textLink="Ver receita"
+            textLinkUrl={`${recipe.id}/ver-receita`}
+          />
+        ))}
+      </GridFoodCards>
+    </Container>
+  );
+};
 
 export default Recipes;

@@ -1,29 +1,54 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import ContentTitle from '../../components/ContentTitle';
+import api from '../../services/api';
 import { Container, Description, ArexText, PhotoCover } from './styles';
 
-const ViewRecipe = () => (
-  <Container>
-    <ContentTitle text="Pizza" />
-    <Description>
-      <PhotoCover>
-        <img
-          src="https://www.odefensor.com.br/site/wp-content/uploads/2017/12/pizza.jpg"
-          alt=""
-        />
-      </PhotoCover>
-      <ArexText>
-        <h2>Descrição</h2>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
-        </p>
-      </ArexText>
-    </Description>
-  </Container>
-);
+const ViewRecipe = ({ token }) => {
+  const { id } = useParams();
+  const [recipe, setRecipe] = useState({});
+
+  useEffect(() => {
+    const loadRecipe = async () => {
+      const response = await api.get(`api/v1/recipe/${id}`, {
+        headers: {
+          Authorization: `Token ${token}`,
+        },
+      });
+
+      const {
+        title,
+        description,
+        category: { name: categoryName, image: categoryImage },
+      } = response.data;
+
+      setRecipe({
+        title,
+        description,
+        categoryName,
+        categoryImage,
+      });
+    };
+
+    loadRecipe();
+  }, []);
+
+  return (
+    <Container>
+      {console.log(recipe)}
+      <ContentTitle text={recipe.categoryName} />
+      <Description>
+        <PhotoCover>
+          <img src={recipe.categoryImage} alt={recipe.categoryName} />
+        </PhotoCover>
+        <ArexText>
+          <h2>{recipe.title}</h2>
+          <p>{recipe.description}</p>
+        </ArexText>
+      </Description>
+    </Container>
+  );
+};
 
 export default ViewRecipe;

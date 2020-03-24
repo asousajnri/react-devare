@@ -6,7 +6,7 @@ import devices from '../../styles/devices';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: auto;
+  margin-bottom: 10rem;
   width: 100%;
 `;
 

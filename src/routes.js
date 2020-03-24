@@ -10,9 +10,6 @@ import ViewRecipe from './pages/ViewRecipe';
 
 const MainRoutes = ({ dispatch, userAuth }) => (
   <Switch>
-    {console.log('AQUI LOCAL:', localStorage.getItem('isLogged'))}
-    {console.log('AQUI: ', userAuth.isLogged)}
-
     <Route exact path="/">
       {!userAuth.isLogged ? (
         <Login dispatch={dispatch} />
@@ -20,24 +17,31 @@ const MainRoutes = ({ dispatch, userAuth }) => (
         <Redirect to="/receitas" />
       )}
     </Route>
-
     <Route path="/receitas">
-      {userAuth.isLogged ? <Recipes /> : <Redirect to="/" />}
+      {userAuth.isLogged ? (
+        <Recipes token={userAuth.token} />
+      ) : (
+        <Redirect to="/" />
+      )}
     </Route>
-
     <Route path="/minhas-receitas">
-      {userAuth.isLogged ? <MyRecipes /> : <Redirect to="/" />}
+      {userAuth.isLogged ? (
+        <MyRecipes userId={userAuth.id} token={userAuth.token} />
+      ) : (
+        <Redirect to="/" />
+      )}
     </Route>
-
-    <Route path="/ver-receita">
-      {userAuth.isLogged ? <ViewRecipe /> : <Redirect to="/" />}
+    <Route path="/:id/ver-receita">
+      {userAuth.isLogged ? (
+        <ViewRecipe token={userAuth.token} />
+      ) : (
+        <Redirect to="/" />
+      )}
     </Route>
-
     <Route path="/adicionar-receita">
       {userAuth.isLogged ? <NewRecipe /> : <Redirect to="/" />}
     </Route>
-
-    <Route path="/editar-receita">
+    <Route path="/:id/editar-receita">
       {userAuth.isLogged ? (
         <EditRecipe dispatch={dispatch} />
       ) : (

@@ -17,6 +17,8 @@ export const Photo = styled(FlexContainer)`
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  max-height: 35rem;
+  height: 35rem;
 
   &:hover {
     img {
@@ -58,6 +60,9 @@ export const Photo = styled(FlexContainer)`
     position: relative;
     z-index: 1;
     transition: all 0.5s;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 
   h2 {
@@ -75,6 +80,9 @@ export const AreaText = styled(FlexContainer)`
   padding: 4rem 3rem;
   background: #fff;
   border-bottom: 2px solid ${props => props.theme.colors.primary};
+  max-height: 30rem;
+  height: 30rem;
+  overflow: hidden;
 
   @media ${devices.tabletLandscape} {
     border-right: 1px solid #ddd;
@@ -92,9 +100,11 @@ export const AreaText = styled(FlexContainer)`
     font-size: 1.6rem;
     line-height: 1.9rem;
     margin-bottom: 2rem;
+    word-break: break-all;
   }
 
   a {
     color: ${props => props.theme.colors.primary};
+    margin-top: auto;
   }
 `;

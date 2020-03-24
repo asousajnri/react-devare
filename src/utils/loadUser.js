@@ -5,12 +5,13 @@ const loadUser = async user => {
     const response = await api.post('authentication/', user);
 
     const {
-      data: { name, image, token },
+      data: { id, name, image, token },
       status,
     } = response;
 
     return {
       status,
+      id,
       name,
       image,
       token,
