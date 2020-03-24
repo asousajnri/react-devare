@@ -3,6 +3,7 @@ import React from 'react';
 import { Container } from './styles';
 
 const Input = ({
+  defaultValue,
   value,
   type,
   name,
@@ -13,6 +14,7 @@ const Input = ({
 }) => (
   <Container className={required && 'is-required'}>
     <input
+      defaultValue={defaultValue}
       value={value}
       type={type}
       name={name}

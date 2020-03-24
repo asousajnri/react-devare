@@ -51,7 +51,11 @@ const MainRoutes = ({ dispatch, userAuth }) => (
     </Route>
     <Route path="/:id/editar-receita">
       {userAuth.isLogged ? (
-        <EditRecipe dispatch={dispatch} />
+        <EditRecipe
+          dispatch={dispatch}
+          token={userAuth.token}
+          userId={userAuth.id}
+        />
       ) : (
         <Redirect to="/" />
       )}

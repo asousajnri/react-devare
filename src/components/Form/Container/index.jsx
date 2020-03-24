@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Form } from './styles';
 
-const Container = ({ borderRadius, children, onSubmit }) => (
-  <Form onSubmit={e => onSubmit(e)} borderRadius={borderRadius}>
+const Container = ({ noBorderRadius, children, onSubmit }) => (
+  <Form onSubmit={e => onSubmit(e)} noBorderRadius={noBorderRadius}>
     {children}
   </Form>
 );

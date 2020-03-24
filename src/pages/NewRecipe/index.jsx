@@ -71,8 +71,13 @@ const NewRecipe = ({ dispatch, userId, token }) => {
         buttonAction: handleModalAction,
       });
     } else {
-      setRequiredTitle(true);
-      setRequiredSelect(true);
+      if (!title) {
+        setRequiredTitle(true);
+      }
+
+      if (!category) {
+        setRequiredSelect(true);
+      }
     }
   };
 
@@ -109,7 +114,7 @@ const NewRecipe = ({ dispatch, userId, token }) => {
   return (
     <Container>
       <ContentTitle text="Adicionar receita" />
-      <Form.Container borderRadius="false" onSubmit={handleOnSubmit}>
+      <Form.Container noBorderRadius onSubmit={handleOnSubmit}>
         <Form.Group>
           <Form.Input
             value={title}
