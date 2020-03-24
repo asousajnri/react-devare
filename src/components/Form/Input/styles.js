@@ -4,11 +4,13 @@ export const Container = styled.div`
   display: flex;
   margin-bottom: 2rem;
   flex-direction: column;
+  min-height: 6rem;
 
   &.is-required {
     input {
       border-color: red;
       border-width: 2px;
+      margin-bottom: 0.5rem;
     }
   }
 
@@ -19,7 +21,6 @@ export const Container = styled.div`
     padding: 0 2rem;
     border-radius: 5px;
     font-size: 1.8rem;
-    margin-bottom: 0.5rem;
   }
 
   span {

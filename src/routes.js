@@ -39,7 +39,11 @@ const MainRoutes = ({ dispatch, userAuth }) => (
       )}
     </Route>
     <Route path="/adicionar-receita">
-      {userAuth.isLogged ? <NewRecipe /> : <Redirect to="/" />}
+      {userAuth.isLogged ? (
+        <NewRecipe userId={userAuth.id} token={userAuth.token} />
+      ) : (
+        <Redirect to="/" />
+      )}
     </Route>
     <Route path="/:id/editar-receita">
       {userAuth.isLogged ? (

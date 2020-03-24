@@ -84,6 +84,14 @@ const Login = ({ dispatch }) => {
     }
   };
 
+  const handleFieldUser = e => {
+    setUsername(e.target.value);
+  };
+
+  const handleFieldPass = e => {
+    setPassword(e.target.value);
+  };
+
   return (
     <Container>
       <img src={pathLogo} alt="Logo Devari Food" />
@@ -92,7 +100,7 @@ const Login = ({ dispatch }) => {
         {notify && <Form.Notify text={msgNotify} />}
         <Form.Input
           value={username}
-          onChange={setUsername}
+          onChange={handleFieldUser}
           type="text"
           name="email"
           placeholder="Email"
@@ -101,7 +109,7 @@ const Login = ({ dispatch }) => {
         />
         <Form.Input
           value={password}
-          onChange={setPassword}
+          onChange={handleFieldPass}
           type="password"
           name="password"
           placeholder="Senha"

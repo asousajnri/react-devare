@@ -17,9 +17,9 @@ const Input = ({
       type={type}
       name={name}
       placeholder={placeholder}
-      onChange={e => onChange(e.target.value)}
+      onChange={e => onChange(e)}
     />
-    {required && <span>{requiredMsg}</span>}
+    {required && <span>{requiredMsg || 'Campo obrigatório'}</span>}
   </Container>
 );
 
