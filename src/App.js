@@ -28,12 +28,15 @@ const App = () => {
       <ThemeProvider theme={defaultTheme}>
         {userAuth.isLogged && (
           <Header
+            openMenuMobile={openMenuMobile}
             dispatch={dispatch}
             userName={userAuth.name}
             userImage={userAuth.image}
           />
         )}
-        {isMobile && <MenuMobile className={openMenuMobile && 'is-active'} />}
+        {isMobile && (
+          <MenuMobile dispatch={dispatch} openMenuMobile={openMenuMobile} />
+        )}
 
         <MainContainer>
           <Routes dispatch={dispatch} userAuth={userAuth} />

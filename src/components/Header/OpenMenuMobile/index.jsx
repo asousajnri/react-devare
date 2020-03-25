@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 
 import { Container, Line } from './styles';
 
-const OpenMenuMobile = ({ dispatch }) => {
-  const [isActive, setIsActive] = useState(false);
-
+const OpenMenuMobile = ({ dispatch, openMenuMobile }) => {
   const handleOpenMenuMobile = e => {
     e.persist();
-    setIsActive(!isActive);
+
     dispatch({
       type: 'OPEN_MENU_MOBILE',
     });
@@ -16,7 +14,7 @@ const OpenMenuMobile = ({ dispatch }) => {
   return (
     <Container
       onClick={e => handleOpenMenuMobile(e)}
-      className={isActive && 'is-active'}
+      className={openMenuMobile && 'is-active'}
     >
       <Line className="top" />
       <Line className="center" />

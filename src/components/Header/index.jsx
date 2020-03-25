@@ -8,7 +8,7 @@ import OpenMenuMobile from './OpenMenuMobile';
 import ProfileAvatar from './ProfileAvatar';
 import { Container, Logo, WrapperControls, GridMax } from './styles';
 
-const Header = ({ dispatch, userName, userImage }) => {
+const Header = ({ dispatch, userName, userImage, openMenuMobile }) => {
   const isMobile = useIsMobile();
 
   return (
@@ -24,7 +24,12 @@ const Header = ({ dispatch, userName, userImage }) => {
         {!isMobile && <MainMenu />}
 
         <WrapperControls>
-          {isMobile && <OpenMenuMobile dispatch={dispatch} />}
+          {isMobile && (
+            <OpenMenuMobile
+              openMenuMobile={openMenuMobile}
+              dispatch={dispatch}
+            />
+          )}
           <ProfileAvatar
             dispatch={dispatch}
             userName={userName}
