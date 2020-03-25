@@ -19,6 +19,7 @@ export const Container = styled.div`
   }
 
   select {
+    margin-bottom: 0;
     margin-right: 0;
     display: block;
     display: block;

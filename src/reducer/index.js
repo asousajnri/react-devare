@@ -24,7 +24,7 @@ module.exports = function reducer(state, action) {
           buttonAction: action.buttonAction,
         },
         userAuth: state.userAuth,
-        openMenuMobile: !state.openMenuMobile,
+        openMenuMobile: state.openMenuMobile,
       };
     case 'OPEN_MENU_MOBILE':
       return {
